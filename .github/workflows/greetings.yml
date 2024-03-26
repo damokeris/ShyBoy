@@ -1,0 +1,35 @@
+name: Greetings
+
+on: [pull_request_target, issues]
+
+jobs:
+  greeting:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+    steps:
+    - uses: actions/first-interaction@v1
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        issue-message: |
+          👋 Hello there! We're delighted to see you here! 🎉
+
+          Thank you for taking the time to contribute to our project. Your efforts help us grow and improve. If you have any questions or need guidance, feel free to reach out to our community or maintainers.
+          
+          We're looking forward to seeing your contributions!
+
+        pr-message: |
+          🎉 Congratulations on opening your first pull request here! We're thrilled to have you contributing to our project. 🚀
+
+          Here's what will happen next:
+          - Our CI pipeline will run some checks on your contributions.
+          - A project maintainer or community member will review your PR and possibly provide feedback or suggestions.
+          - Once everything looks good, your PR will be merged into the main branch.
+
+          While you wait, here are some things you can do:
+          - Check out other open issues or PRs to see if you can contribute elsewhere.
+          - Join our community chat or forum to connect with other contributors.
+
+          Thank you for helping us make this project even better!
+
